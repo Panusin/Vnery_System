@@ -480,7 +480,7 @@ if __name__ == '__main__':
     #get all the source files existed in the path
     get_file_list(inven_path)
     #get screen resolution from the system
-    #tv_width, tv_height = get_resolution()
+    tv_width, tv_height = get_resolution()
     #set_resolution(tv_width, tv_height)
     set_innitial_point(10,10)
     # if tv has set in vertical, swap the width and height
@@ -492,7 +492,7 @@ if __name__ == '__main__':
     #control_command('set_re:500:200')
     control_command('xy:1750:1000')
     control_command('load:' + str(picture_source))
-    #control_command('play:')
+    control_command('play:')
     while True:
         try:
             if videoMode:
