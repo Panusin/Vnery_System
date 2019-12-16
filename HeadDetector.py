@@ -64,7 +64,6 @@ def draw_skeleton_data(pSkelton, index, positions, width=4):
         pygame.draw.line(screen, SKELETON_COLORS[index], curstart, curend, width)
 
         start = next
-# recipe to get address of surface: http://archives.seul.org/pygame/users/Apr-2008/msg00218.html
 if hasattr(ctypes.pythonapi, 'Py_InitModule4'):
     Py_ssize_t = ctypes.c_int
 elif hasattr(ctypes.pythonapi, 'Py_InitModule4_64'):
@@ -100,11 +99,12 @@ def draw_skeletons(skeletons):
             # pygame.display.update()
             # print(data)
             # print(int(head_position[0]), int(head_position[1]))
-        # drawing the limbs
+            # drawing the limbs
         draw_skeleton_data(data, index, LEFT_ARM)
         draw_skeleton_data(data, index, RIGHT_ARM)
         draw_skeleton_data(data, index, LEFT_LEG)
         draw_skeleton_data(data, index, RIGHT_LEG)
+        
 def rescale_frame(frame, percent=75):
     width = int(frame.shape[1] * percent / 100)
     height = int(frame.shape[0] * percent / 100)
@@ -211,12 +211,6 @@ if __name__ == '__main__':
 
 
     kinect.skeleton_frame_ready += post_frame
-    # kinect.depth_frame_ready += depth_frame_ready
-    # kinect.video_frame_ready += video_frame_ready
-
-    # kinect.video_stream.open(nui.ImageStreamType.Video, 2, nui.ImageResolution.Resolution640x480, nui.ImageType.Color)
-    # kinect.depth_stream.open(nui.ImageStreamType.Depth, 2, nui.ImageResolution.Resolution320x240, nui.ImageType.Depth)
-
     print('Controls: ')
     print('     u - Increase elevation angle')
     print('     j - Decrease elevation angle')
